@@ -1,8 +1,8 @@
 title: Mashe Estate Home
 description: Real estate investing and market analysis
 theme: minima
-baseurl: "/mashestate-home"
-url: "https://siavashsed.github.io"
+baseurl: ""
+url: "https://home.mashestate.com"
 markdown: kramdown
 permalink: /:year/:month/:day/:title/
 show_excerpts: true
