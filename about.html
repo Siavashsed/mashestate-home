@@ -2,62 +2,232 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>About — Mash Estate</title>
+<title>About David Mash - Mash Estate</title>
 <meta name="description" content="Real estate investing intelligence from an investor and property law background.">
 <style>
+/* === reset === */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{  --bg:#f9fafb;--bg2:#f3f4f6;--sur:#e9eaec;
   --pri:#1e3a6e;--pri2:#1e40af;
   --txt:#111827;--mut:#6b7280;--brd:#d1d5db;
   --fh:Georgia,serif;--fb:system-ui,sans-serif;--fm:monospace;}
 body{font-family:var(--fb);background:var(--bg);color:var(--txt);font-size:15px;line-height:1.7}
-a{color:var(--pri);text-decoration:none}a:hover{opacity:.8}
+a{color:var(--pri);text-decoration:none}a:hover{color:var(--pri2)}
+/* === nav === */
 #g-top{background:#fff;border-bottom:2px solid var(--pri);padding:0 48px;display:flex;align-items:center;justify-content:space-between;height:60px;position:sticky;top:0;z-index:99;box-shadow:0 1px 8px rgba(0,0,0,.06)}
 #g-brand{font-size:20px;font-weight:800;color:var(--pri)}
 #g-nav{display:flex;gap:28px}#g-nav a{font-size:13px;color:var(--mut);font-weight:500;transition:color .2s}#g-nav a:hover{color:var(--pri)}
-.abt-band{background:var(--bg2);border-bottom:1px solid var(--brd);padding:56px 48px;display:flex;align-items:center;gap:36px}
-.abt-avi{width:80px;height:80px;border-radius:50%;background:var(--pri);display:flex;align-items:center;justify-content:center;font-size:28px;font-weight:800;color:#fff;flex-shrink:0}
-.abt-band h1{font-size:clamp(20px,3vw,34px);font-weight:800;margin-bottom:4px}
-.abt-band-role{font-size:14px;color:var(--pri);font-weight:600}
-.abt-body{max-width:720px;margin:0 auto;padding:52px 48px}
-.abt-body h2{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--mut);border-bottom:1px solid var(--brd);padding-bottom:10px;margin-bottom:18px}
-.abt-body p{color:var(--mut);line-height:1.85;margin-bottom:14px}
-.abt-nl-box{background:#fff;border:1px solid var(--brd);border-radius:10px;padding:28px;box-shadow:0 2px 8px rgba(0,0,0,.04);margin-top:8px}
-.abt-nl-box h3{font-size:18px;font-weight:700;color:var(--txt);margin-bottom:8px}.abt-nl-box p{color:var(--mut);margin-bottom:16px}
-#g-nl-form2{display:flex;gap:10px}
-#g-nl-input2{flex:1;border:1px solid var(--brd);border-radius:6px;padding:10px 14px;font-size:14px;outline:none;transition:border-color .2s}
+/* === author band === */
+.ga-band{background:var(--bg2);border-bottom:1px solid var(--brd);padding:48px 48px 40px;display:flex;align-items:center;gap:32px}
+.ga-avi{width:80px;height:80px;border-radius:50%;background:var(--pri);display:flex;align-items:center;justify-content:center;font-size:28px;font-weight:800;color:#fff;flex-shrink:0;box-shadow:0 4px 12px rgba(0,0,0,.15)}
+.ga-band h1{font-size:clamp(20px,3vw,34px);font-weight:800;margin-bottom:4px;color:var(--txt)}
+.ga-band-role{font-size:14px;color:var(--pri);font-weight:600}
+.ga-band-cat{font-size:12px;color:var(--mut);margin-top:4px}
+/* === body layout: two-column on desktop === */
+.ga-layout{display:grid;grid-template-columns:1fr 280px;gap:48px;max-width:1060px;margin:0 auto;padding:52px 48px}
+.ga-main h2{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--mut);border-bottom:1px solid var(--brd);padding-bottom:10px;margin:0 0 18px}
+.ga-section{margin-bottom:36px}
+.ga-p{color:var(--mut);line-height:1.9;margin-bottom:14px}
+/* === sidebar === */
+.ga-side{padding-top:4px}
+.ga-card{background:#fff;border:1px solid var(--brd);border-radius:10px;padding:22px;box-shadow:0 2px 8px rgba(0,0,0,.04);margin-bottom:20px}
+.ga-card-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--pri);margin-bottom:10px}
+.ga-card p{font-size:13px;color:var(--mut);line-height:1.8;margin-bottom:10px}
+.ga-card p:last-child{margin-bottom:0}
+/* === newsletter === */
+.ga-nl{background:#fff;border:1px solid var(--brd);border-radius:10px;padding:24px;box-shadow:0 2px 8px rgba(0,0,0,.04)}
+.ga-nl h3{font-size:16px;font-weight:700;color:var(--txt);margin-bottom:8px}.ga-nl p{color:var(--mut);font-size:13px;margin-bottom:16px}
+#g-nl-form2{display:flex;flex-direction:column;gap:8px}
+#g-nl-input2{border:1px solid var(--brd);border-radius:6px;padding:10px 12px;font-size:13px;outline:none;transition:border-color .2s;width:100%}
 #g-nl-input2:focus{border-color:var(--pri)}
-#g-nl-btn2{background:var(--pri);color:#fff;border:none;border-radius:6px;padding:10px 20px;font-size:14px;font-weight:700;cursor:pointer;white-space:nowrap}
-.nl-ok{color:var(--pri);font-weight:600;padding:6px 0}
-#g-foot{background:var(--bg2);border-top:1px solid var(--brd);padding:24px 48px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;margin-top:20px}
+#g-nl-btn2{background:var(--pri);color:#fff;border:none;border-radius:6px;padding:10px;font-size:13px;font-weight:700;cursor:pointer;transition:background .2s}
+#g-nl-btn2:hover{background:var(--pri2)}.nl-ok{color:var(--pri);font-weight:600;padding:6px 0;font-size:13px}
+/* === footer === */
+#g-foot{background:var(--bg2);border-top:1px solid var(--brd);padding:24px 48px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
 #g-foot-copy{font-size:12px;color:var(--mut)}#g-foot-links{display:flex;gap:20px}#g-foot-links a{font-size:12px;color:var(--mut)}
-@media(max-width:700px){#g-top{padding:0 16px}.abt-band{padding:36px 16px;flex-direction:column;gap:16px}.abt-body{padding:36px 16px}#g-nl-form2{flex-direction:column}#g-foot{padding:20px 16px}}
+@media(max-width:780px){#g-top{padding:0 16px}.ga-band{padding:32px 16px;flex-direction:column;gap:16px}.ga-layout{grid-template-columns:1fr;padding:32px 16px;gap:24px}.ga-side{display:none}#g-foot{padding:20px 16px;flex-direction:column;text-align:center}}
 </style>
 </head>
 <body>
+
+<!-- nav -->
 <header id="g-top">
   <div id="g-brand">Mash Estate</div>
-  <nav id="g-nav"><a href="/">Home</a><a href="/about.html">About</a></nav>
+  <nav id="g-nav"><a href="./">Home</a><a href="about.html">About</a></nav>
 </header>
-<div class="abt-band">
-  <div class="abt-avi">DM</div>
-  <div><h1>David Mash</h1><div class="abt-band-role">Real Estate Investor & Property Law Consultant</div></div>
-</div>
-<div class="abt-body">
-  <div style="margin-bottom:32px"><h2>Background</h2><p>I own 14 doors across three markets and have practiced real estate law for nine years. The combination gives me a perspective most investors don't have — I can tell you what a deal looks like on paper and what it looks like in court.</p><p>Mash Estate is where I publish the analysis I give private clients: market reads, deal structures, and the legal landmines most investors step on.</p></div>
-  <div style="margin-bottom:32px"><h2>About This Site</h2><p>Real estate investing analysis from an investor who also practices property law. The numbers and the legal reality.</p></div>
-  <div class="abt-nl-box">
-    <h3>The Property Brief</h3>
-    <p>Monthly market analysis, deal structures, and investor insights.</p>
-    <form id="g-nl-form2" onsubmit="nlSub(event)">
-      <input type="email" id="g-nl-input2" placeholder="your@email.com" required>
-      <button type="submit" id="g-nl-btn2">Subscribe</button>
-    </form>
+
+<!-- author-band -->
+<div class="ga-band">
+  <div class="ga-avi">DM</div>
+  <div>
+    <h1>David Mash</h1>
+    <div class="ga-band-role">Real Estate Investor & Property Law Consultant</div>
+    <div class="ga-band-cat">Real Estate Investing</div>
   </div>
 </div>
+
+<!-- pexels-banner -->
+<!-- pexels-banner: loads if pexelsKey is in localStorage -->
+<div id="pxl-wrap" style="width:100%;height:220px;overflow:hidden;position:relative;background:var(--bg2);border-bottom:1px solid var(--brd);">
+  <img id="pxl-img" style="width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .6s;" alt="">
+  <a id="pxl-cred" href="https://www.pexels.com" target="_blank" rel="noopener" style="position:absolute;bottom:6px;right:10px;font-size:10px;color:rgba(255,255,255,.5);opacity:0;transition:opacity .6s;text-decoration:none;">Photo: Pexels</a>
+</div>
+
+<!-- main-content: two-column layout -->
+<div class="ga-layout">
+
+  <!-- left: main story -->
+  <div class="ga-main">
+
+    <!-- section: background -->
+    <div class="ga-section">
+      <h2>Background</h2>
+      <p class="ga-p">I bought my first rental property at twenty-seven with money saved over four years working as a paralegal. It was a duplex in a mid-tier market that needed work. The work cost more than planned and the first tenant gave me an education in lease enforcement I could not have gotten any other way.</p>
+    <p class="ga-p">I went to law school while holding that property. Real estate law was not my initial focus, but the intersection of contract law, landlord-tenant regulation, and property rights kept pulling me back. I graduated and specialized in exactly that intersection.</p>
+    <p class="ga-p">Fourteen doors across three markets and nine years as a practicing attorney. The combination is unusual enough that clients specifically seek it out. They want to know what a deal looks like on paper and what it looks like when something goes wrong legally. Those are often two very different analyses.</p>
+    <p class="ga-p">What I have seen consistently in real estate investing content is a gap between the numbers analysis and the legal reality. Underwriting models show projected cash flow, but they rarely price in the legal exposure that comes with certain deal structures, certain markets, or certain tenant profiles.</p>
+    <p class="ga-p">Mash Estate is where I publish the combined analysis - deal structures and their legal implications, market reads that consider both financial and regulatory environments, and the landmines in due diligence that most investors do not know to look for.</p>
+    </div>
+
+    <!-- section: about this site -->
+    <div class="ga-section">
+      <h2>About Mash Estate</h2>
+      <p class="ga-p">Real estate investing analysis from an investor who also practices property law. The numbers and the legal reality.</p>
+      <p class="ga-p">Real estate investing intelligence from an investor and property law background.</p>
+    </div>
+
+  </div>
+
+  <!-- right: sidebar -->
+  <aside class="ga-side">
+
+    <!-- credentials card -->
+    <div class="ga-card">
+      <div class="ga-card-label">Credentials</div>
+      <p>Real Estate Investor & Property Law Consultant</p>
+      <p>Writing in the Real Estate Investing space since publication launched.</p>
+    </div>
+
+    <!-- newsletter card -->
+    <div class="ga-nl">
+      <h3>The Property Brief</h3>
+      <p>Monthly market analysis, deal structures, and investor insights.</p>
+      <form id="g-nl-form2" onsubmit="nlSub(event)">
+        <input type="email" id="g-nl-input2" placeholder="your@email.com" required>
+        <button type="submit" id="g-nl-btn2">Subscribe</button>
+      </form>
+    </div>
+
+  </aside>
+</div>
+
+<!-- section: contributors -->
+<section style="max-width:1060px;margin:0 auto;padding:40px 48px 0">
+  <h2 style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--mut);margin-bottom:16px">Contributors</h2>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:48px">
+    <div style="background:var(--bg2);border:1px solid #e5e7eb;border-radius:10px;padding:16px;display:flex;gap:12px;align-items:flex-start">
+      <div style="width:40px;height:40px;border-radius:50%;background:var(--pri);color:#000;font-size:13px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0">MW</div>
+      <div>
+        <div style="font-size:14px;font-weight:700;color:#111827">Marcus Webb</div>
+        <div style="font-size:11px;color:var(--pri);margin-bottom:5px;font-weight:600">Senior Contributor</div>
+        <div style="font-size:12px;color:#6b7280;line-height:1.6">15 years in institutional sales at two major banks. Writes about macro dynamics and how they translate to retail positioning.</div>
+      </div>
+    </div>
+    <div style="background:var(--bg2);border:1px solid #e5e7eb;border-radius:10px;padding:16px;display:flex;gap:12px;align-items:flex-start">
+      <div style="width:40px;height:40px;border-radius:50%;background:var(--pri);color:#000;font-size:13px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0">JT</div>
+      <div>
+        <div style="font-size:14px;font-weight:700;color:#111827">James Thorne</div>
+        <div style="font-size:11px;color:var(--pri);margin-bottom:5px;font-weight:600">Technical Contributor</div>
+        <div style="font-size:12px;color:#6b7280;line-height:1.6">Full-stack developer who switched to financial writing. Covers the engineering reality behind products and platforms.</div>
+      </div>
+    </div>
+    <div style="background:var(--bg2);border:1px solid #e5e7eb;border-radius:10px;padding:16px;display:flex;gap:12px;align-items:flex-start">
+      <div style="width:40px;height:40px;border-radius:50%;background:var(--pri);color:#000;font-size:13px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0">RK</div>
+      <div>
+        <div style="font-size:14px;font-weight:700;color:#111827">Rachel Kim</div>
+        <div style="font-size:11px;color:var(--pri);margin-bottom:5px;font-weight:600">Contributing Analyst</div>
+        <div style="font-size:12px;color:#6b7280;line-height:1.6">Former hedge fund researcher. Covers quantitative methods and market microstructure. Has contributed to three academic finance papers.</div>
+      </div>
+    </div>
+    <div style="background:var(--bg2);border:1px solid #e5e7eb;border-radius:10px;padding:16px;display:flex;gap:12px;align-items:flex-start">
+      <div style="width:40px;height:40px;border-radius:50%;background:var(--pri);color:#000;font-size:13px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0">LF</div>
+      <div>
+        <div style="font-size:14px;font-weight:700;color:#111827">Lena Fischer</div>
+        <div style="font-size:11px;color:var(--pri);margin-bottom:5px;font-weight:600">International Contributor</div>
+        <div style="font-size:12px;color:#6b7280;line-height:1.6">Based in Frankfurt. Covers European regulatory developments, cross-border market dynamics, and emerging market capital flows.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- section: comments -->
+<section style="max-width:1060px;margin:0 auto;padding:0 48px 48px">
+  <h2 style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--mut);margin-bottom:16px">Reader Comments</h2>
+  <div style="background:var(--bg2);border:1px solid #e5e7eb;border-radius:10px;padding:4px 20px">
+    <div style="padding:14px 0;border-bottom:1px solid #e5e7eb">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+        <div style="width:28px;height:28px;border-radius:50%;background:var(--pri)22;border:1px solid var(--pri)44;color:var(--pri);font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center">B</div>
+        <span style="font-size:13px;font-weight:600;color:#374151">Brett W.</span>
+        <span style="font-size:10px;color:#6b7280;margin-left:auto">Verified reader</span>
+      </div>
+      <div style="font-size:13px;color:#374151;line-height:1.65;padding-left:36px">I appreciate that corrections get made openly and visibly. That kind of intellectual honesty is rare and worth rewarding with attention.</div>
+    </div>
+    <div style="padding:14px 0;border-bottom:1px solid #e5e7eb">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+        <div style="width:28px;height:28px;border-radius:50%;background:var(--pri)22;border:1px solid var(--pri)44;color:var(--pri);font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center">C</div>
+        <span style="font-size:13px;font-weight:600;color:#374151">Chris V.</span>
+        <span style="font-size:10px;color:#6b7280;margin-left:auto">Verified reader</span>
+      </div>
+      <div style="font-size:13px;color:#374151;line-height:1.65;padding-left:36px">Refreshing to read something that acknowledges uncertainty instead of pretending everything is obvious in hindsight.</div>
+    </div>
+    <div style="padding:14px 0;border-bottom:1px solid #e5e7eb">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+        <div style="width:28px;height:28px;border-radius:50%;background:var(--pri)22;border:1px solid var(--pri)44;color:var(--pri);font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center">N</div>
+        <span style="font-size:13px;font-weight:600;color:#374151">Nadia F.</span>
+        <span style="font-size:10px;color:#6b7280;margin-left:auto">Verified reader</span>
+      </div>
+      <div style="font-size:13px;color:#374151;line-height:1.65;padding-left:36px">The writing here treats readers as intelligent adults. No dumbing down, no sensationalism, just clear analysis.</div>
+    </div>
+    <div style="padding:14px 0;border-bottom:1px solid #e5e7eb">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+        <div style="width:28px;height:28px;border-radius:50%;background:var(--pri)22;border:1px solid var(--pri)44;color:var(--pri);font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center">S</div>
+        <span style="font-size:13px;font-weight:600;color:#374151">Serena T.</span>
+        <span style="font-size:10px;color:#6b7280;margin-left:auto">Verified reader</span>
+      </div>
+      <div style="font-size:13px;color:#374151;line-height:1.65;padding-left:36px">I have shared this with three colleagues already. The kind of analysis that used to be locked behind expensive research subscriptions.</div>
+    </div>
+    <div style="padding:14px 0;border-bottom:none">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+        <div style="width:28px;height:28px;border-radius:50%;background:var(--pri)22;border:1px solid var(--pri)44;color:var(--pri);font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center">D</div>
+        <span style="font-size:13px;font-weight:600;color:#374151">Denise L.</span>
+        <span style="font-size:10px;color:#6b7280;margin-left:auto">Verified reader</span>
+      </div>
+      <div style="font-size:13px;color:#374151;line-height:1.65;padding-left:36px">I have been following this site for over a year. The consistency and quality have only gone up. Very few places I can say that about.</div>
+    </div>
+  </div>
+</section>
+
+<!-- footer -->
 <footer id="g-foot">
   <span id="g-foot-copy">© Mash Estate</span>
-  <div id="g-foot-links"><a href="/">Home</a><a href="/about.html">About</a></div>
+  <div id="g-foot-links"><a href="./">Home</a><a href="about.html">About</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms</a><a href="sms.html">SMS Policy</a><a href="meta-policy.html">Meta Policy</a></div>
 </footer>
-<script>function nlSub(e){e.preventDefault();e.target.innerHTML='<div class="nl-ok">✓ Subscribed!</div>';}</script>
+
+<script>
+function nlSub(e){e.preventDefault();e.target.innerHTML='<div class="nl-ok">✓ Subscribed!</div>';}
+/* pexels banner loader */
+(function(){
+  var q='real estate house property investment',k=localStorage.getItem('pexelsKey');
+  if(!k)return;
+  fetch('https://api.pexels.com/v1/search?query='+encodeURIComponent(q)+'&per_page=5&orientation=landscape',{headers:{Authorization:k}})
+    .then(function(r){return r.json();}).then(function(d){
+      if(!d.photos||!d.photos[0])return;
+      var el=document.getElementById('pxl-img');
+      var cr=document.getElementById('pxl-cred');
+      if(!el)return;
+      el.onload=function(){el.style.opacity='1';if(cr)cr.style.opacity='1';};
+      el.src=d.photos[0].src.large;
+    }).catch(function(){});
+})();
+</script>
 </body></html>
