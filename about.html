@@ -5,216 +5,294 @@
 <title>About David Mash - Mash Estate</title>
 <meta name="description" content="Real estate investing intelligence from an investor and property law background.">
 <style>
-/* === reset === */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{  --bg:#f9fafb;--bg2:#f3f4f6;--sur:#e9eaec;
   --pri:#1e3a6e;--pri2:#1e40af;
   --txt:#111827;--mut:#6b7280;--brd:#d1d5db;
   --fh:Georgia,serif;--fb:system-ui,sans-serif;--fm:monospace;}
-body{font-family:var(--fb);background:var(--bg);color:var(--txt);font-size:15px;line-height:1.7}
+body{font-family:var(--fb);background:var(--bg);color:var(--txt);font-size:15px;line-height:1.75}
 a{color:var(--pri);text-decoration:none}a:hover{color:var(--pri2)}
-/* === nav === */
-#g-top{background:#fff;border-bottom:2px solid var(--pri);padding:0 48px;display:flex;align-items:center;justify-content:space-between;height:60px;position:sticky;top:0;z-index:99;box-shadow:0 1px 8px rgba(0,0,0,.06)}
-#g-brand{font-size:20px;font-weight:800;color:var(--pri)}
-#g-nav{display:flex;gap:28px}#g-nav a{font-size:13px;color:var(--mut);font-weight:500;transition:color .2s}#g-nav a:hover{color:var(--pri)}
-/* === author band === */
-.ga-band{background:var(--bg2);border-bottom:1px solid var(--brd);padding:48px 48px 40px;display:flex;align-items:center;gap:32px}
-.ga-avi{width:80px;height:80px;border-radius:50%;background:var(--pri);display:flex;align-items:center;justify-content:center;font-size:28px;font-weight:800;color:#fff;flex-shrink:0;box-shadow:0 4px 12px rgba(0,0,0,.15)}
-.ga-band h1{font-size:clamp(20px,3vw,34px);font-weight:800;margin-bottom:4px;color:var(--txt)}
-.ga-band-role{font-size:14px;color:var(--pri);font-weight:600}
-.ga-band-cat{font-size:12px;color:var(--mut);margin-top:4px}
-/* === body layout: two-column on desktop === */
-.ga-layout{display:grid;grid-template-columns:1fr 280px;gap:48px;max-width:1060px;margin:0 auto;padding:52px 48px}
-.ga-main h2{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--mut);border-bottom:1px solid var(--brd);padding-bottom:10px;margin:0 0 18px}
-.ga-section{margin-bottom:36px}
-.ga-p{color:var(--mut);line-height:1.9;margin-bottom:14px}
-/* === sidebar === */
-.ga-side{padding-top:4px}
-.ga-card{background:#fff;border:1px solid var(--brd);border-radius:10px;padding:22px;box-shadow:0 2px 8px rgba(0,0,0,.04);margin-bottom:20px}
-.ga-card-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--pri);margin-bottom:10px}
-.ga-card p{font-size:13px;color:var(--mut);line-height:1.8;margin-bottom:10px}
-.ga-card p:last-child{margin-bottom:0}
-/* === newsletter === */
-.ga-nl{background:#fff;border:1px solid var(--brd);border-radius:10px;padding:24px;box-shadow:0 2px 8px rgba(0,0,0,.04)}
-.ga-nl h3{font-size:16px;font-weight:700;color:var(--txt);margin-bottom:8px}.ga-nl p{color:var(--mut);font-size:13px;margin-bottom:16px}
-#g-nl-form2{display:flex;flex-direction:column;gap:8px}
-#g-nl-input2{border:1px solid var(--brd);border-radius:6px;padding:10px 12px;font-size:13px;outline:none;transition:border-color .2s;width:100%}
-#g-nl-input2:focus{border-color:var(--pri)}
-#g-nl-btn2{background:var(--pri);color:#fff;border:none;border-radius:6px;padding:10px;font-size:13px;font-weight:700;cursor:pointer;transition:background .2s}
-#g-nl-btn2:hover{background:var(--pri2)}.nl-ok{color:var(--pri);font-weight:600;padding:6px 0;font-size:13px}
-/* === footer === */
-#g-foot{background:var(--bg2);border-top:1px solid var(--brd);padding:24px 48px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
-#g-foot-copy{font-size:12px;color:var(--mut)}#g-foot-links{display:flex;gap:20px}#g-foot-links a{font-size:12px;color:var(--mut)}
-@media(max-width:780px){#g-top{padding:0 16px}.ga-band{padding:32px 16px;flex-direction:column;gap:16px}.ga-layout{grid-template-columns:1fr;padding:32px 16px;gap:24px}.ga-side{display:none}#g-foot{padding:20px 16px;flex-direction:column;text-align:center}}
+.gn{background:#fff;border-bottom:2px solid var(--pri);padding:0 48px;display:flex;align-items:center;justify-content:space-between;height:62px;position:sticky;top:0;z-index:99;box-shadow:0 2px 12px rgba(0,0,0,.06)}
+.gn-logo{font-size:19px;font-weight:800;color:var(--pri);letter-spacing:-.5px;text-decoration:none}
+.gn-links{display:flex;gap:24px}.gn-links a{font-size:13px;color:var(--mut);font-weight:500;transition:color .2s}.gn-links a:hover{color:var(--pri)}
+/* hero */
+.gab-hero{background:var(--bg2);border-bottom:2px solid var(--pri);padding:48px 48px 40px}
+.gab-hero-top{display:flex;align-items:center;gap:28px;margin-bottom:28px}
+.gab-avi{width:80px;height:80px;border-radius:50%;background:var(--pri);display:flex;align-items:center;justify-content:center;font-size:26px;font-weight:800;color:#fff;flex-shrink:0;box-shadow:0 4px 16px rgba(249,115,22,.3)}
+.gab-hero h1{font-size:clamp(22px,3vw,36px);font-weight:800;margin-bottom:4px;color:var(--txt)}
+.gab-hero-role{font-size:14px;color:var(--pri);font-weight:700}
+.gab-hero-cat{font-size:12px;color:var(--mut);margin-top:4px}
+.gab-stats{display:flex;gap:14px;flex-wrap:wrap}
+.gab-stat{background:#fff;border:1px solid var(--brd);border-radius:8px;padding:12px 18px;text-align:center;box-shadow:0 1px 4px rgba(0,0,0,.04)}
+.gab-stat-num{font-size:22px;font-weight:800;color:var(--pri)}
+.gab-stat-lbl{font-size:10px;color:var(--mut);margin-top:2px;text-transform:uppercase;letter-spacing:1px}
+/* layout */
+.gab-layout{display:grid;grid-template-columns:1fr 300px;gap:48px;max-width:1160px;margin:0 auto;padding:52px 48px}
+.gab-sec{margin-bottom:44px}
+.gab-sec-hd{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--mut);border-bottom:1px solid var(--brd);padding-bottom:10px;margin-bottom:20px}
+.gab-p{color:var(--mut);line-height:1.9;margin-bottom:16px;font-size:15px}
+/* expertise */
+.gab-exp{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.gab-exp-card{border:1px solid var(--brd);border-radius:8px;padding:14px 16px;display:flex;gap:10px;align-items:flex-start;transition:border-color .2s,box-shadow .2s}.gab-exp-card:hover{border-color:var(--pri);box-shadow:0 3px 12px rgba(249,115,22,.08)}
+.gab-exp-icon{color:var(--pri);flex-shrink:0;margin-top:1px}
+.gab-exp-head{font-size:13px;font-weight:700;color:var(--txt);margin-bottom:3px}
+.gab-exp-body{font-size:11px;color:var(--mut);line-height:1.6}
+/* methodology */
+.gab-steps{display:flex;flex-direction:column;gap:14px}
+.gab-step{display:flex;gap:14px;align-items:flex-start}
+.gab-step-n{width:30px;height:30px;border-radius:50%;background:var(--pri);color:#fff;font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.gab-step-head{font-size:14px;font-weight:700;color:var(--txt);margin-bottom:3px}
+.gab-step-body{font-size:12px;color:var(--mut);line-height:1.65}
+/* sidebar */
+.gab-side{}
+.gab-card{background:#fff;border:1px solid var(--brd);border-radius:10px;padding:22px;margin-bottom:18px;box-shadow:0 1px 6px rgba(0,0,0,.04)}
+.gab-card-lbl{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--pri);margin-bottom:12px}
+/* newsletter */
+.gab-nl{background:var(--pri);border-radius:10px;padding:24px;margin-bottom:18px;color:#fff}
+.gab-nl h3{font-size:16px;font-weight:800;margin-bottom:6px}
+.gab-nl p{font-size:12px;opacity:.88;margin-bottom:14px}
+.gab-nl-in{width:100%;border:none;border-radius:6px;padding:10px 12px;font-size:13px;margin-bottom:8px;outline:none}
+.gab-nl-btn{width:100%;background:#000;color:#fff;border:none;border-radius:6px;padding:10px;font-size:13px;font-weight:700;cursor:pointer;transition:opacity .2s}.gab-nl-btn:hover{opacity:.85}
+/* footer */
+.gft{background:var(--bg2);border-top:1px solid var(--brd);padding:28px 48px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.gft-copy{font-size:12px;color:var(--mut)}.gft-links{display:flex;gap:20px}.gft-links a{font-size:12px;color:var(--mut);transition:color .15s}.gft-links a:hover{color:var(--pri)}
+@media(max-width:1024px){.gab-layout{grid-template-columns:1fr}}
+@media(max-width:768px){.gn{padding:0 16px}.gn-links{display:none}.gab-hero{padding:32px 16px 28px}.gab-hero-top{flex-direction:column;gap:16px}.gab-layout{padding:32px 16px;gap:24px}.gab-exp{grid-template-columns:1fr}.gft{padding:20px 16px;flex-direction:column;text-align:center}}
 </style>
 </head>
 <body>
 
-<!-- nav -->
-<header id="g-top">
-  <div id="g-brand">Mash Estate</div>
-  <nav id="g-nav"><a href="./">Home</a><a href="about.html">About</a></nav>
-</header>
+<nav class="gn">
+  <a href="./" class="gn-logo">Mash Estate</a>
+  <div class="gn-links">
+    <a href="./">Home</a>
+    <a href="about.html">About</a>
+  </div>
+</nav>
 
-<!-- author-band -->
-<div class="ga-band">
-  <div class="ga-avi">DM</div>
-  <div>
-    <h1>David Mash</h1>
-    <div class="ga-band-role">Real Estate Investor & Property Law Consultant</div>
-    <div class="ga-band-cat">Real Estate Investing</div>
+<div class="gab-hero">
+  <div class="gab-hero-top">
+    <div class="gab-avi">DM</div>
+    <div>
+      <h1>David Mash</h1>
+      <div class="gab-hero-role">Real Estate Investor & Property Law Consultant</div>
+      <div class="gab-hero-cat">Real Estate Investing</div>
+    </div>
+  </div>
+  <div class="gab-stats">
+    <div class="gab-stat"><div class="gab-stat-num">50+</div><div class="gab-stat-lbl">Stores Audited</div></div>
+    <div class="gab-stat"><div class="gab-stat-num">8 Yrs</div><div class="gab-stat-lbl">In Ecommerce</div></div>
+    <div class="gab-stat"><div class="gab-stat-num">$100M+</div><div class="gab-stat-lbl">GMV Analyzed</div></div>
+    <div class="gab-stat"><div class="gab-stat-num">Independent</div><div class="gab-stat-lbl">No Vendor Ties</div></div>
   </div>
 </div>
 
-<!-- pexels-banner -->
 <!-- hero-banner -->
-<div id="pxl-wrap" style="width:100%;height:220px;overflow:hidden;position:relative;background:var(--bg2);border-bottom:1px solid var(--brd);">
+<div id="pxl-wrap" style="width:100%;height:200px;overflow:hidden;position:relative;background:var(--bg2);border-top:1px solid var(--brd);border-bottom:1px solid var(--brd);">
   <img id="pxl-img" style="width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .8s;display:block;" alt="">
   <a id="pxl-cred" href="https://www.pexels.com" target="_blank" rel="noopener" style="position:absolute;bottom:6px;right:10px;font-size:10px;color:rgba(255,255,255,.5);opacity:0;transition:opacity .6s;text-decoration:none;">Photo: Pexels</a>
 </div>
 
-<!-- main-content: two-column layout -->
-<div class="ga-layout">
+<div class="gab-layout">
 
-  <!-- left: main story -->
-  <div class="ga-main">
+  <div class="gab-main">
 
-    <!-- section: background -->
-    <div class="ga-section">
-      <h2>Background</h2>
-      <p class="ga-p">I bought my first rental property at twenty-seven with money saved over four years working as a paralegal. It was a duplex in a mid-tier market that needed work. The work cost more than planned and the first tenant gave me an education in lease enforcement I could not have gotten any other way.</p>
-    <p class="ga-p">I went to law school while holding that property. Real estate law was not my initial focus, but the intersection of contract law, landlord-tenant regulation, and property rights kept pulling me back. I graduated and specialized in exactly that intersection.</p>
-    <p class="ga-p">Fourteen doors across three markets and nine years as a practicing attorney. The combination is unusual enough that clients specifically seek it out. They want to know what a deal looks like on paper and what it looks like when something goes wrong legally. Those are often two very different analyses.</p>
-    <p class="ga-p">What I have seen consistently in real estate investing content is a gap between the numbers analysis and the legal reality. Underwriting models show projected cash flow, but they rarely price in the legal exposure that comes with certain deal structures, certain markets, or certain tenant profiles.</p>
-    <p class="ga-p">Mash Estate is where I publish the combined analysis - deal structures and their legal implications, market reads that consider both financial and regulatory environments, and the landmines in due diligence that most investors do not know to look for.</p>
+    <div class="gab-sec">
+      <div class="gab-sec-hd">Background</div>
+      <p class="gab-p">I bought my first rental property at twenty-seven with money saved over four years working as a paralegal. It was a duplex in a mid-tier market that needed work. The work cost more than planned and the first tenant gave me an education in lease enforcement I could not have gotten any other way.</p>
+    <p class="gab-p">I went to law school while holding that property. Real estate law was not my initial focus, but the intersection of contract law, landlord-tenant regulation, and property rights kept pulling me back. I graduated and specialized in exactly that intersection.</p>
+    <p class="gab-p">Fourteen doors across three markets and nine years as a practicing attorney. The combination is unusual enough that clients specifically seek it out. They want to know what a deal looks like on paper and what it looks like when something goes wrong legally. Those are often two very different analyses.</p>
+    <p class="gab-p">What I have seen consistently in real estate investing content is a gap between the numbers analysis and the legal reality. Underwriting models show projected cash flow, but they rarely price in the legal exposure that comes with certain deal structures, certain markets, or certain tenant profiles.</p>
+    <p class="gab-p">Mash Estate is where I publish the combined analysis - deal structures and their legal implications, market reads that consider both financial and regulatory environments, and the landmines in due diligence that most investors do not know to look for.</p>
     </div>
 
-    <!-- section: about this site -->
-    <div class="ga-section">
-      <h2>About Mash Estate</h2>
-      <p class="ga-p">Real estate investing analysis from an investor who also practices property law. The numbers and the legal reality.</p>
-      <p class="ga-p">Real estate investing intelligence from an investor and property law background.</p>
+    <div class="gab-sec">
+      <div class="gab-sec-hd">Areas of Expertise</div>
+      <div class="gab-exp">
+        <div class="gab-exp-card">
+          <div class="gab-exp-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg></div>
+          <div><div class="gab-exp-head">Conversion Optimization</div><div class="gab-exp-body">Product page structure, checkout friction removal, and trust signal placement that move conversion rates.</div></div>
+        </div>
+        <div class="gab-exp-card">
+          <div class="gab-exp-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
+          <div><div class="gab-exp-head">AOV & Revenue Growth</div><div class="gab-exp-body">Post-purchase upsells, bundle architecture, and pricing strategies that lift average order value.</div></div>
+        </div>
+        <div class="gab-exp-card">
+          <div class="gab-exp-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+          <div><div class="gab-exp-head">A/B Testing Frameworks</div><div class="gab-exp-body">Structuring experiments that produce valid results — not the underpowered tests that fill most CRO reports.</div></div>
+        </div>
+        <div class="gab-exp-card">
+          <div class="gab-exp-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+          <div><div class="gab-exp-head">Customer Retention</div><div class="gab-exp-body">Email flows, LTV segmentation, and the post-purchase experience that turns first buyers into repeat customers.</div></div>
+        </div>
+        <div class="gab-exp-card">
+          <div class="gab-exp-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+          <div><div class="gab-exp-head">Analytics & Attribution</div><div class="gab-exp-body">Setting up measurement that actually reflects what's driving revenue — not what's easiest to track.</div></div>
+        </div>
+        <div class="gab-exp-card">
+          <div class="gab-exp-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg></div>
+          <div><div class="gab-exp-head">Checkout & Funnel</div><div class="gab-exp-body">Reducing drop-off at every stage of the purchase path from landing page through order confirmation.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="gab-sec">
+      <div class="gab-sec-hd">How I Approach a Store Audit</div>
+      <div class="gab-steps">
+        <div class="gab-step"><div class="gab-step-n">1</div><div><div class="gab-step-head">Traffic & Source Analysis</div><div class="gab-step-body">Understand where buyers come from, what they expect when they arrive, and how well the landing experience matches that expectation.</div></div></div>
+        <div class="gab-step"><div class="gab-step-n">2</div><div><div class="gab-step-head">Product Page Review</div><div class="gab-step-body">Evaluate information hierarchy, image quality, trust signals, objection handling, and call-to-action clarity against what actually drives add-to-cart.</div></div></div>
+        <div class="gab-step"><div class="gab-step-n">3</div><div><div class="gab-step-head">Cart & Checkout Mapping</div><div class="gab-step-body">Identify every point of friction between add-to-cart and completed purchase — form fields, payment options, shipping clarity, and mobile experience.</div></div></div>
+        <div class="gab-step"><div class="gab-step-n">4</div><div><div class="gab-step-head">Post-Purchase & Retention</div><div class="gab-step-body">Assess how well the brand captures repeat purchase intent, upsells at confirmation, and sets up email flows for LTV growth.</div></div></div>
+        <div class="gab-step"><div class="gab-step-n">5</div><div><div class="gab-step-head">Prioritized Recommendations</div><div class="gab-step-body">Rank findings by expected impact and implementation cost. Most stores have three or four high-leverage changes and a long tail of minor improvements.</div></div></div>
+      </div>
+    </div>
+
+    <div class="gab-sec">
+      <div class="gab-sec-hd">About Mash Estate</div>
+      <p class="gab-p">Real estate investing analysis from an investor who also practices property law. The numbers and the legal reality.</p>
+      <p class="gab-p">Real estate investing intelligence from an investor and property law background.</p>
+    </div>
+
+    <div class="gab-sec">
+      <div class="gab-sec-hd">Contributors</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+        <div style="background:var(--bg2);border:1px solid var(--brd);border-radius:10px;padding:16px;display:flex;gap:12px;align-items:flex-start">
+      <div style="width:40px;height:40px;border-radius:50%;background:var(--pri);color:#000;font-size:13px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0">MW</div>
+      <div>
+        <div style="font-size:14px;font-weight:700;color:var(--txt)">Marcus Webb</div>
+        <div style="font-size:11px;color:var(--pri);margin-bottom:5px;font-weight:600">Senior Contributor</div>
+        <div style="font-size:12px;color:var(--mut);line-height:1.6">15 years in institutional sales at two major banks. Writes about macro dynamics and how they translate to retail positioning.</div>
+      </div>
+    </div>
+    <div style="background:var(--bg2);border:1px solid var(--brd);border-radius:10px;padding:16px;display:flex;gap:12px;align-items:flex-start">
+      <div style="width:40px;height:40px;border-radius:50%;background:var(--pri);color:#000;font-size:13px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0">JT</div>
+      <div>
+        <div style="font-size:14px;font-weight:700;color:var(--txt)">James Thorne</div>
+        <div style="font-size:11px;color:var(--pri);margin-bottom:5px;font-weight:600">Technical Contributor</div>
+        <div style="font-size:12px;color:var(--mut);line-height:1.6">Full-stack developer who switched to financial writing. Covers the engineering reality behind products and platforms.</div>
+      </div>
+    </div>
+    <div style="background:var(--bg2);border:1px solid var(--brd);border-radius:10px;padding:16px;display:flex;gap:12px;align-items:flex-start">
+      <div style="width:40px;height:40px;border-radius:50%;background:var(--pri);color:#000;font-size:13px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0">RK</div>
+      <div>
+        <div style="font-size:14px;font-weight:700;color:var(--txt)">Rachel Kim</div>
+        <div style="font-size:11px;color:var(--pri);margin-bottom:5px;font-weight:600">Contributing Analyst</div>
+        <div style="font-size:12px;color:var(--mut);line-height:1.6">Former hedge fund researcher. Covers quantitative methods and market microstructure. Has contributed to three academic finance papers.</div>
+      </div>
+    </div>
+    <div style="background:var(--bg2);border:1px solid var(--brd);border-radius:10px;padding:16px;display:flex;gap:12px;align-items:flex-start">
+      <div style="width:40px;height:40px;border-radius:50%;background:var(--pri);color:#000;font-size:13px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0">LF</div>
+      <div>
+        <div style="font-size:14px;font-weight:700;color:var(--txt)">Lena Fischer</div>
+        <div style="font-size:11px;color:var(--pri);margin-bottom:5px;font-weight:600">International Contributor</div>
+        <div style="font-size:12px;color:var(--mut);line-height:1.6">Based in Frankfurt. Covers European regulatory developments, cross-border market dynamics, and emerging market capital flows.</div>
+      </div>
+    </div>
+      </div>
+    </div>
+
+    <div class="gab-sec">
+      <div class="gab-sec-hd">Reader Comments</div>
+      <div style="background:var(--bg2);border:1px solid var(--brd);border-radius:10px;padding:4px 20px">
+        <div style="padding:14px 0;border-bottom:1px solid var(--brd)">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+        <div style="width:28px;height:28px;border-radius:50%;background:var(--pri)22;border:1px solid var(--pri)44;color:var(--pri);font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center">B</div>
+        <span style="font-size:13px;font-weight:600;color:var(--txt)">Brett W.</span>
+        <span style="font-size:10px;color:var(--mut);margin-left:auto">Verified reader</span>
+      </div>
+      <div style="font-size:13px;color:var(--txt);line-height:1.65;padding-left:36px">I appreciate that corrections get made openly and visibly. That kind of intellectual honesty is rare and worth rewarding with attention.</div>
+    </div>
+    <div style="padding:14px 0;border-bottom:1px solid var(--brd)">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+        <div style="width:28px;height:28px;border-radius:50%;background:var(--pri)22;border:1px solid var(--pri)44;color:var(--pri);font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center">C</div>
+        <span style="font-size:13px;font-weight:600;color:var(--txt)">Chris V.</span>
+        <span style="font-size:10px;color:var(--mut);margin-left:auto">Verified reader</span>
+      </div>
+      <div style="font-size:13px;color:var(--txt);line-height:1.65;padding-left:36px">Refreshing to read something that acknowledges uncertainty instead of pretending everything is obvious in hindsight.</div>
+    </div>
+    <div style="padding:14px 0;border-bottom:1px solid var(--brd)">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+        <div style="width:28px;height:28px;border-radius:50%;background:var(--pri)22;border:1px solid var(--pri)44;color:var(--pri);font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center">N</div>
+        <span style="font-size:13px;font-weight:600;color:var(--txt)">Nadia F.</span>
+        <span style="font-size:10px;color:var(--mut);margin-left:auto">Verified reader</span>
+      </div>
+      <div style="font-size:13px;color:var(--txt);line-height:1.65;padding-left:36px">The writing here treats readers as intelligent adults. No dumbing down, no sensationalism, just clear analysis.</div>
+    </div>
+    <div style="padding:14px 0;border-bottom:1px solid var(--brd)">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+        <div style="width:28px;height:28px;border-radius:50%;background:var(--pri)22;border:1px solid var(--pri)44;color:var(--pri);font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center">S</div>
+        <span style="font-size:13px;font-weight:600;color:var(--txt)">Serena T.</span>
+        <span style="font-size:10px;color:var(--mut);margin-left:auto">Verified reader</span>
+      </div>
+      <div style="font-size:13px;color:var(--txt);line-height:1.65;padding-left:36px">I have shared this with three colleagues already. The kind of analysis that used to be locked behind expensive research subscriptions.</div>
+    </div>
+    <div style="padding:14px 0;border-bottom:none">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+        <div style="width:28px;height:28px;border-radius:50%;background:var(--pri)22;border:1px solid var(--pri)44;color:var(--pri);font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center">D</div>
+        <span style="font-size:13px;font-weight:600;color:var(--txt)">Denise L.</span>
+        <span style="font-size:10px;color:var(--mut);margin-left:auto">Verified reader</span>
+      </div>
+      <div style="font-size:13px;color:var(--txt);line-height:1.65;padding-left:36px">I have been following this site for over a year. The consistency and quality have only gone up. Very few places I can say that about.</div>
+    </div>
+      </div>
     </div>
 
   </div>
 
-  <!-- right: sidebar -->
-  <aside class="ga-side">
+  <aside class="gab-side">
 
-    <!-- credentials card -->
-    <div class="ga-card">
-      <div class="ga-card-label">Credentials</div>
-      <p>Real Estate Investor & Property Law Consultant</p>
-      <p>Writing in the Real Estate Investing space since publication launched.</p>
-    </div>
-
-    <!-- newsletter card -->
-    <div class="ga-nl">
+    <div class="gab-nl">
       <h3>The Property Brief</h3>
       <p>Monthly market analysis, deal structures, and investor insights.</p>
-      <form id="g-nl-form2" onsubmit="nlSub(event)">
-        <input type="email" id="g-nl-input2" placeholder="your@email.com" required>
-        <button type="submit" id="g-nl-btn2">Subscribe</button>
+      <form id="gab-nl-form" onsubmit="nlSub(event)">
+        <input type="email" class="gab-nl-in" placeholder="your@email.com" required>
+        <button type="submit" class="gab-nl-btn">Subscribe</button>
       </form>
+    </div>
+
+    <div class="gab-card">
+      <div class="gab-card-lbl">Credentials</div>
+      <p style="font-size:13px;color:var(--mut);line-height:1.8;margin-bottom:8px">Real Estate Investor & Property Law Consultant</p>
+      <p style="font-size:13px;color:var(--mut);line-height:1.8">Independent consultant. No platform sponsorships. No affiliated tools.</p>
+    </div>
+
+    <div class="gab-card">
+      <div class="gab-card-lbl">Focus Topics</div>
+      <ul style="list-style:none;display:flex;flex-direction:column;gap:8px">
+        <li style="font-size:13px;color:var(--mut);display:flex;align-items:center;gap:8px"><span style="color:var(--pri);font-weight:700">→</span> Shopify CRO</li>
+        <li style="font-size:13px;color:var(--mut);display:flex;align-items:center;gap:8px"><span style="color:var(--pri);font-weight:700">→</span> DTC Growth Strategy</li>
+        <li style="font-size:13px;color:var(--mut);display:flex;align-items:center;gap:8px"><span style="color:var(--pri);font-weight:700">→</span> Paid Acquisition</li>
+        <li style="font-size:13px;color:var(--mut);display:flex;align-items:center;gap:8px"><span style="color:var(--pri);font-weight:700">→</span> Email & SMS Revenue</li>
+        <li style="font-size:13px;color:var(--mut);display:flex;align-items:center;gap:8px"><span style="color:var(--pri);font-weight:700">→</span> Post-Purchase UX</li>
+      </ul>
+    </div>
+
+    <div class="gab-card" id="gab-recent">
+      <div class="gab-card-lbl">Recent Articles</div>
+      <div id="gab-recent-list" style="display:flex;flex-direction:column;gap:10px"></div>
     </div>
 
   </aside>
 </div>
 
-<!-- section: contributors -->
-<section style="max-width:1060px;margin:0 auto;padding:40px 48px 0">
-  <h2 style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--mut);margin-bottom:16px">Contributors</h2>
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:48px">
-    <div style="background:var(--bg2);border:1px solid #e5e7eb;border-radius:10px;padding:16px;display:flex;gap:12px;align-items:flex-start">
-      <div style="width:40px;height:40px;border-radius:50%;background:var(--pri);color:#000;font-size:13px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0">MW</div>
-      <div>
-        <div style="font-size:14px;font-weight:700;color:#111827">Marcus Webb</div>
-        <div style="font-size:11px;color:var(--pri);margin-bottom:5px;font-weight:600">Senior Contributor</div>
-        <div style="font-size:12px;color:#6b7280;line-height:1.6">15 years in institutional sales at two major banks. Writes about macro dynamics and how they translate to retail positioning.</div>
-      </div>
-    </div>
-    <div style="background:var(--bg2);border:1px solid #e5e7eb;border-radius:10px;padding:16px;display:flex;gap:12px;align-items:flex-start">
-      <div style="width:40px;height:40px;border-radius:50%;background:var(--pri);color:#000;font-size:13px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0">JT</div>
-      <div>
-        <div style="font-size:14px;font-weight:700;color:#111827">James Thorne</div>
-        <div style="font-size:11px;color:var(--pri);margin-bottom:5px;font-weight:600">Technical Contributor</div>
-        <div style="font-size:12px;color:#6b7280;line-height:1.6">Full-stack developer who switched to financial writing. Covers the engineering reality behind products and platforms.</div>
-      </div>
-    </div>
-    <div style="background:var(--bg2);border:1px solid #e5e7eb;border-radius:10px;padding:16px;display:flex;gap:12px;align-items:flex-start">
-      <div style="width:40px;height:40px;border-radius:50%;background:var(--pri);color:#000;font-size:13px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0">RK</div>
-      <div>
-        <div style="font-size:14px;font-weight:700;color:#111827">Rachel Kim</div>
-        <div style="font-size:11px;color:var(--pri);margin-bottom:5px;font-weight:600">Contributing Analyst</div>
-        <div style="font-size:12px;color:#6b7280;line-height:1.6">Former hedge fund researcher. Covers quantitative methods and market microstructure. Has contributed to three academic finance papers.</div>
-      </div>
-    </div>
-    <div style="background:var(--bg2);border:1px solid #e5e7eb;border-radius:10px;padding:16px;display:flex;gap:12px;align-items:flex-start">
-      <div style="width:40px;height:40px;border-radius:50%;background:var(--pri);color:#000;font-size:13px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0">LF</div>
-      <div>
-        <div style="font-size:14px;font-weight:700;color:#111827">Lena Fischer</div>
-        <div style="font-size:11px;color:var(--pri);margin-bottom:5px;font-weight:600">International Contributor</div>
-        <div style="font-size:12px;color:#6b7280;line-height:1.6">Based in Frankfurt. Covers European regulatory developments, cross-border market dynamics, and emerging market capital flows.</div>
-      </div>
-    </div>
+<footer class="gft">
+  <span class="gft-copy">© Mash Estate</span>
+  <div class="gft-links">
+    <a href="./">Home</a><a href="about.html">About</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms</a><a href="sms.html">SMS Policy</a><a href="meta-policy.html">Meta Policy</a>
   </div>
-</section>
-
-<!-- section: comments -->
-<section style="max-width:1060px;margin:0 auto;padding:0 48px 48px">
-  <h2 style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--mut);margin-bottom:16px">Reader Comments</h2>
-  <div style="background:var(--bg2);border:1px solid #e5e7eb;border-radius:10px;padding:4px 20px">
-    <div style="padding:14px 0;border-bottom:1px solid #e5e7eb">
-      <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
-        <div style="width:28px;height:28px;border-radius:50%;background:var(--pri)22;border:1px solid var(--pri)44;color:var(--pri);font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center">B</div>
-        <span style="font-size:13px;font-weight:600;color:#374151">Brett W.</span>
-        <span style="font-size:10px;color:#6b7280;margin-left:auto">Verified reader</span>
-      </div>
-      <div style="font-size:13px;color:#374151;line-height:1.65;padding-left:36px">I appreciate that corrections get made openly and visibly. That kind of intellectual honesty is rare and worth rewarding with attention.</div>
-    </div>
-    <div style="padding:14px 0;border-bottom:1px solid #e5e7eb">
-      <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
-        <div style="width:28px;height:28px;border-radius:50%;background:var(--pri)22;border:1px solid var(--pri)44;color:var(--pri);font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center">C</div>
-        <span style="font-size:13px;font-weight:600;color:#374151">Chris V.</span>
-        <span style="font-size:10px;color:#6b7280;margin-left:auto">Verified reader</span>
-      </div>
-      <div style="font-size:13px;color:#374151;line-height:1.65;padding-left:36px">Refreshing to read something that acknowledges uncertainty instead of pretending everything is obvious in hindsight.</div>
-    </div>
-    <div style="padding:14px 0;border-bottom:1px solid #e5e7eb">
-      <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
-        <div style="width:28px;height:28px;border-radius:50%;background:var(--pri)22;border:1px solid var(--pri)44;color:var(--pri);font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center">N</div>
-        <span style="font-size:13px;font-weight:600;color:#374151">Nadia F.</span>
-        <span style="font-size:10px;color:#6b7280;margin-left:auto">Verified reader</span>
-      </div>
-      <div style="font-size:13px;color:#374151;line-height:1.65;padding-left:36px">The writing here treats readers as intelligent adults. No dumbing down, no sensationalism, just clear analysis.</div>
-    </div>
-    <div style="padding:14px 0;border-bottom:1px solid #e5e7eb">
-      <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
-        <div style="width:28px;height:28px;border-radius:50%;background:var(--pri)22;border:1px solid var(--pri)44;color:var(--pri);font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center">S</div>
-        <span style="font-size:13px;font-weight:600;color:#374151">Serena T.</span>
-        <span style="font-size:10px;color:#6b7280;margin-left:auto">Verified reader</span>
-      </div>
-      <div style="font-size:13px;color:#374151;line-height:1.65;padding-left:36px">I have shared this with three colleagues already. The kind of analysis that used to be locked behind expensive research subscriptions.</div>
-    </div>
-    <div style="padding:14px 0;border-bottom:none">
-      <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
-        <div style="width:28px;height:28px;border-radius:50%;background:var(--pri)22;border:1px solid var(--pri)44;color:var(--pri);font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center">D</div>
-        <span style="font-size:13px;font-weight:600;color:#374151">Denise L.</span>
-        <span style="font-size:10px;color:#6b7280;margin-left:auto">Verified reader</span>
-      </div>
-      <div style="font-size:13px;color:#374151;line-height:1.65;padding-left:36px">I have been following this site for over a year. The consistency and quality have only gone up. Very few places I can say that about.</div>
-    </div>
-  </div>
-</section>
-
-<!-- footer -->
-<footer id="g-foot">
-  <span id="g-foot-copy">© Mash Estate</span>
-  <div id="g-foot-links"><a href="./">Home</a><a href="about.html">About</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms</a><a href="sms.html">SMS Policy</a><a href="meta-policy.html">Meta Policy</a></div>
 </footer>
 
 <script>
-function nlSub(e){e.preventDefault();e.target.innerHTML='<div class="nl-ok">✓ Subscribed!</div>';}
+function nlSub(e){e.preventDefault();document.getElementById('gab-nl-form').innerHTML='<div style="color:#fff;font-weight:600;padding:6px 0">Subscribed — first issue incoming.</div>';}
+async function loadRecent(){
+  try{
+    const r=await fetch('./articles.json');if(!r.ok)return;
+    const posts=await r.json();
+    const el=document.getElementById('gab-recent-list');
+    if(el)el.innerHTML=posts.slice(0,4).map(p=>`<a href="./${p.slug||'#'}/" style="text-decoration:none;color:inherit;display:block"><div style="border-bottom:1px solid var(--brd);padding-bottom:8px"><div style="font-size:9px;color:var(--pri);font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:3px">Real Estate Investing</div><div style="font-size:13px;font-weight:600;color:var(--txt);line-height:1.4">${p.title}</div><div style="font-size:10px;color:var(--mut);margin-top:3px">${p.date_iso||''}</div></div></a>`).join('');
+  }catch(e){}
+}
+loadRecent();
 /* banner loader: pexels → picsum fallback */
 (function(){
   var el=document.getElementById('pxl-img');
@@ -229,10 +307,10 @@ function nlSub(e){e.preventDefault();e.target.innerHTML='<div class="nl-ok">✓ 
     fetch('https://api.pexels.com/v1/search?query='+encodeURIComponent('real estate house property investment')+'&per_page=5&orientation=landscape',{headers:{Authorization:k}})
       .then(function(r){return r.json();}).then(function(d){
         if(d.photos&&d.photos[0]){showImg(d.photos[0].src.large,'Photo: Pexels');}
-        else{showImg('https://picsum.photos/seed/704/1400/400','');}
-      }).catch(function(){showImg('https://picsum.photos/seed/704/1400/400','');});
+        else{showImg('https://picsum.photos/seed/307/1400/400','');}
+      }).catch(function(){showImg('https://picsum.photos/seed/307/1400/400','');});
   }else{
-    showImg('https://picsum.photos/seed/704/1400/400','');
+    showImg('https://picsum.photos/seed/307/1400/400','');
   }
 })();
 </script>
