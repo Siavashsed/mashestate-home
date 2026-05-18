@@ -31,7 +31,7 @@ img{max-width:100%;display:block}
 .nav-in{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;align-items:center;height:68px;gap:48px}
 .nav-logo{font-size:20px;font-weight:700;color:var(--navy);letter-spacing:-.03em}
 .nav-logo span{color:var(--blue)}
-.nav-links{display:flex;gap:0;flex:1}
+.nav-links{display:flex;gap:0;flex:1;flex-wrap:nowrap;overflow:hidden}
 .nav-links a{font-size:14px;font-weight:500;padding:0 18px;height:68px;display:flex;align-items:center;color:var(--muted);transition:color .15s}
 .nav-links a:hover{color:var(--navy)}
 .nav-btn{margin-left:auto;background:var(--navy);color:#fff;font-size:14px;font-weight:600;padding:10px 22px;border-radius:6px;transition:background .15s}
@@ -314,21 +314,32 @@ const PLACEHOLDER_ARTS=[
   {title:"First-Time Investor: Choosing Between Single-Family and Multi-Family",slug:"sfh-vs-multifamily",cat:"investment",excerpt:"SFH is simpler; multi-family scales faster. The decision depends on which problem you want to solve first.",mins:10},
 ];
 
+const IMGS=[
+  'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600&q=75',
+  'https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=600&q=75',
+  'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&q=75',
+  'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=600&q=75',
+  'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=75',
+  'https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=600&q=75',
+];
+
 let arts=[];
 
 async function load(){
-  try{
-    const r=await fetch("./articles.json");
-    if(r.ok){arts=await r.json();}else{arts=PLACEHOLDER_ARTS;}
-  }catch{arts=PLACEHOLDER_ARTS;}
+  try{const r=await fetch("./articles.json");if(r.ok){arts=await r.json();}else{arts=PLACEHOLDER_ARTS;}}
+  catch{arts=PLACEHOLDER_ARTS;}
   renderGrid();
   renderGuides();
+  if(arts[0]){
+    const hc=document.getElementById("heroCard");
+    if(hc){hc.querySelector(".hero-card-title").textContent=arts[0].title;hc.querySelector(".hero-card-label").textContent=arts[0].cat||"Featured";hc.href=`./${arts[0].slug}/`;}
+  }
 }
 
 function renderGrid(){
-  document.getElementById("propGrid").innerHTML=arts.slice(0,6).map(a=>`
+  document.getElementById("propGrid").innerHTML=arts.slice(0,6).map((a,i)=>`
     <a href="./${a.slug}/" class="prop-card">
-      <div class="prop-card-img"><img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=600&q=70" alt="${a.title}" loading="lazy"></div>
+      <div class="prop-card-img"><img src="${IMGS[i%IMGS.length]}" alt="${a.title}" loading="lazy"></div>
       <div class="prop-card-body">
         <span class="prop-label">${a.cat||"Guide"}</span>
         <h3 class="prop-title">${a.title}</h3>
