@@ -12,120 +12,271 @@
   --fh:Georgia,serif;--fb:system-ui,sans-serif;--fm:monospace;}
 body{font-family:var(--fb);background:var(--bg);color:var(--txt);font-size:15px;line-height:1.7}
 a{color:inherit;text-decoration:none}
-#g-top{background:#fff;border-bottom:2px solid var(--pri);padding:0 48px;display:flex;align-items:center;justify-content:space-between;height:60px;position:sticky;top:0;z-index:99;box-shadow:0 1px 8px rgba(0,0,0,.06)}
-#g-brand{font-size:20px;font-weight:800;color:var(--pri);letter-spacing:-0.5px}
-#g-nav{display:flex;gap:28px}#g-nav a{font-size:13px;color:var(--mut);font-weight:500;transition:color .2s}#g-nav a:hover{color:var(--pri)}
-#g-hero{background:var(--bg2);padding:64px 48px 52px;border-bottom:1px solid var(--brd)}
-#g-hero-cat{font-size:11px;font-weight:700;color:var(--pri);text-transform:uppercase;letter-spacing:3px;margin-bottom:14px}
-#g-hero h1{font-size:clamp(24px,3.5vw,44px);font-weight:800;color:var(--txt);max-width:660px;line-height:1.15;margin-bottom:14px}
-#g-hero p{font-size:15px;color:var(--mut);max-width:540px;line-height:1.85}
-#g-articles{padding:52px 48px;max-width:1180px;margin:0 auto}
-#g-articles-hd{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--mut);margin-bottom:24px}
-#g-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:24px}
-.gc-card{background:#fff;border:1px solid var(--brd);border-radius:10px;padding:24px 22px;display:flex;flex-direction:column;gap:8px;box-shadow:0 2px 8px rgba(0,0,0,.04);transition:box-shadow .2s,transform .15s}
-.gc-card:hover{box-shadow:0 6px 20px rgba(0,0,0,.1);transform:translateY(-2px)}
-.gc-tag{font-size:10px;font-weight:700;color:var(--pri);text-transform:uppercase;letter-spacing:2px}
-.gc-card h3{font-size:16px;font-weight:700;line-height:1.35;color:var(--txt)}
-.gc-card p{font-size:13px;color:var(--mut);line-height:1.75;flex:1}
-.gc-foot{display:flex;justify-content:space-between;align-items:center;margin-top:4px}
-.gc-date{font-size:11px;color:var(--mut)}
-.gc-read{font-size:12px;font-weight:600;color:var(--pri)}
-#g-nl{background:var(--pri);padding:64px 48px;text-align:center}
-#g-nl h2{font-size:clamp(20px,2.5vw,30px);font-weight:800;color:#fff;margin-bottom:10px}
-#g-nl p{color:rgba(255,255,255,.8);font-size:15px;margin-bottom:24px}
-#g-nl-form{display:flex;gap:10px;max-width:420px;margin:0 auto}
-#g-nl-input{flex:1;border:none;border-radius:6px;padding:12px 16px;font-size:14px;outline:none}
-#g-nl-btn{background:#000;color:#fff;border:none;border-radius:6px;padding:12px 22px;font-size:14px;font-weight:700;cursor:pointer;white-space:nowrap;transition:opacity .2s}
-#g-nl-btn:hover{opacity:.85}
-#g-nl-ok{color:#fff;font-size:15px;font-weight:600;padding:8px}
-#g-foot{background:var(--bg2);border-top:1px solid var(--brd);padding:24px 48px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
-#g-foot-copy{font-size:12px;color:var(--mut)}
-#g-foot-links{display:flex;gap:20px}#g-foot-links a{font-size:12px;color:var(--mut)}#g-foot-links a:hover{color:var(--pri)}
-@media(max-width:700px){#g-top{padding:0 16px}#g-hero{padding:40px 16px 32px}#g-articles{padding:36px 16px}#g-nl{padding:48px 16px}#g-nl-form{flex-direction:column}#g-foot{padding:20px 16px;flex-direction:column;text-align:center}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+@keyframes slideIn{from{opacity:0;transform:translateX(-12px)}to{opacity:1;transform:translateX(0)}}
+@keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .5s ease,transform .5s ease}.reveal.visible{opacity:1;transform:translateY(0)}
+/* nav */
+.gn{background:#fff;border-bottom:2px solid var(--pri);padding:0 48px;display:flex;align-items:center;justify-content:space-between;height:64px;position:sticky;top:0;z-index:99;box-shadow:0 2px 16px rgba(0,0,0,.07)}
+.gn-logo{font-size:19px;font-weight:800;color:var(--pri);letter-spacing:-.5px}
+.gn-links{display:flex;gap:24px}.gn-links a{font-size:13px;color:var(--mut);font-weight:500;transition:color .2s;padding:4px 0;border-bottom:2px solid transparent}.gn-links a:hover{color:var(--pri);border-bottom-color:var(--pri)}
+.gn-cta{background:var(--pri);color:#fff;border:none;border-radius:6px;padding:9px 20px;font-size:13px;font-weight:700;cursor:pointer;transition:all .2s;box-shadow:0 2px 8px rgba(249,115,22,.3)}.gn-cta:hover{background:var(--pri2);transform:translateY(-1px);box-shadow:0 4px 14px rgba(249,115,22,.4)}
+/* hero */
+.gh{background:linear-gradient(135deg,var(--bg2) 0%,#fff5f0 100%);border-bottom:1px solid var(--brd);padding:60px 48px 56px;animation:fadeUp .6s ease both}
+.gh-eyebrow{font-size:11px;font-weight:700;color:var(--pri);text-transform:uppercase;letter-spacing:3px;margin-bottom:18px;display:flex;align-items:center;gap:8px}
+.gh-eyebrow::before{content:'';width:24px;height:2px;background:var(--pri);flex-shrink:0}
+.gh-h1{font-size:clamp(28px,3.8vw,50px);font-weight:800;line-height:1.1;color:var(--txt);max-width:560px;margin-bottom:16px}
+.gh-sub{font-size:16px;color:var(--mut);max-width:480px;line-height:1.9;margin-bottom:36px}
+.gh-grid{display:grid;grid-template-columns:1fr 340px;gap:24px;align-items:start}
+.gh-feat{display:flex;flex-direction:column;border-radius:12px;overflow:hidden;border:1px solid var(--brd);transition:box-shadow .25s,transform .25s;text-decoration:none;background:#fff}.gh-feat:hover{box-shadow:0 12px 40px rgba(249,115,22,.15);transform:translateY(-3px)}
+.gh-feat-img{width:100%;height:320px;object-fit:cover;display:block;background:linear-gradient(135deg,var(--sur),var(--brd))}
+.gh-feat-body{padding:22px 24px 24px;flex:1}
+.gh-feat-tag{font-size:10px;font-weight:700;color:var(--pri);text-transform:uppercase;letter-spacing:2px;margin-bottom:10px}
+.gh-feat-title{font-size:20px;font-weight:800;line-height:1.3;color:var(--txt);margin-bottom:8px}
+.gh-feat-desc{font-size:13px;color:var(--mut);line-height:1.7;margin-bottom:12px}
+.gh-feat-meta{font-size:11px;color:var(--mut);display:flex;align-items:center;gap:6px}
+.gh-feat-meta::before{content:'';width:20px;height:1px;background:var(--pri);flex-shrink:0}
+.gh-side{display:flex;flex-direction:column;gap:12px}
+.gh-sub-art{display:flex;border:1px solid var(--brd);border-radius:10px;overflow:hidden;background:#fff;transition:box-shadow .2s,transform .2s;text-decoration:none;color:inherit}.gh-sub-art:hover{box-shadow:0 6px 20px rgba(249,115,22,.12);transform:translateY(-2px)}
+.gh-sub-img{width:88px;height:88px;object-fit:cover;flex-shrink:0;background:var(--sur)}
+.gh-sub-body{padding:10px 14px;flex:1}
+.gh-sub-tag{font-size:9px;font-weight:700;color:var(--pri);text-transform:uppercase;letter-spacing:2px;margin-bottom:4px}
+.gh-sub-title{font-size:13px;font-weight:600;line-height:1.4;color:var(--txt)}
+.gh-sub-date{font-size:10px;color:var(--mut);margin-top:5px}
+/* topics */
+.gt{padding:20px 48px;background:#fff;border-bottom:1px solid var(--brd);display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.gt-label{font-size:11px;font-weight:700;color:var(--mut);text-transform:uppercase;letter-spacing:2px;flex-shrink:0;margin-right:4px}
+.gt-tag{font-size:12px;font-weight:600;color:var(--mut);background:var(--bg2);border:1px solid var(--brd);border-radius:100px;padding:5px 14px;transition:all .2s;cursor:pointer}.gt-tag:hover{background:var(--pri);color:#fff;border-color:var(--pri);transform:translateY(-1px)}
+/* value props */
+.gv{padding:52px 48px;background:var(--bg2);border-bottom:1px solid var(--brd)}
+.gv-label{font-size:11px;font-weight:700;color:var(--pri);text-transform:uppercase;letter-spacing:3px;margin-bottom:32px;text-align:center}
+.gv-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;max-width:1120px;margin:0 auto}
+.gv-card{border:1px solid var(--brd);border-radius:12px;padding:24px 20px;text-align:center;background:#fff;transition:all .25s;cursor:default}.gv-card:hover{border-color:var(--pri);box-shadow:0 8px 28px rgba(249,115,22,.12);transform:translateY(-3px)}
+.gv-icon{color:var(--pri);margin-bottom:14px;display:flex;align-items:center;justify-content:center}
+.gv-head{font-size:14px;font-weight:800;color:var(--txt);margin-bottom:8px}
+.gv-body{font-size:12px;color:var(--mut);line-height:1.7}
+/* daily quote */
+.gq{background:var(--pri);padding:52px 48px;position:relative;overflow:hidden}
+.gq::before{content:'';position:absolute;top:-60px;right:-60px;width:200px;height:200px;background:rgba(255,255,255,.06);border-radius:50%}
+.gq::after{content:'';position:absolute;bottom:-40px;left:20px;width:120px;height:120px;background:rgba(255,255,255,.04);border-radius:50%}
+.gq-inner{max-width:760px;margin:0 auto;position:relative;text-align:center}
+.gq-label{font-size:10px;font-weight:700;color:rgba(255,255,255,.7);text-transform:uppercase;letter-spacing:3px;margin-bottom:16px}
+.gq-icon{color:rgba(255,255,255,.3);margin-bottom:16px;display:flex;justify-content:center}
+.gq-text{font-size:clamp(17px,2.2vw,23px);font-weight:600;color:#fff;line-height:1.55;font-style:italic;margin-bottom:16px}
+.gq-attr{font-size:12px;color:rgba(255,255,255,.7);font-style:normal}
+/* pexels banner */
+/* articles */
+.gaa{padding:56px 48px;max-width:1240px;margin:0 auto}
+.gaa-hd{display:flex;align-items:center;gap:12px;margin-bottom:28px;padding-bottom:12px;border-bottom:2px solid var(--brd)}
+.gaa-hd-text{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:var(--mut)}
+.gaa-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:22px}
+.gac{display:flex;flex-direction:column;background:#fff;border:1px solid var(--brd);border-radius:12px;overflow:hidden;transition:all .25s;text-decoration:none;color:inherit}.gac:hover{box-shadow:0 10px 32px rgba(0,0,0,.1);transform:translateY(-3px);border-color:var(--brd)}
+.gac-img{width:100%;height:185px;object-fit:cover;display:block;background:var(--sur);transition:transform .4s}.gac:hover .gac-img{transform:scale(1.03)}
+.gac-img-wrap{overflow:hidden;flex-shrink:0}
+.gac-body{padding:18px 20px 12px;flex:1;display:flex;flex-direction:column;gap:7px}
+.gac-tag{font-size:9px;font-weight:800;color:var(--pri);text-transform:uppercase;letter-spacing:2px}
+.gac-title{font-size:15px;font-weight:700;line-height:1.35;color:var(--txt)}
+.gac-desc{font-size:12px;color:var(--mut);line-height:1.7;flex:1}
+.gac-foot{padding:0 20px 16px;display:flex;justify-content:space-between;align-items:center}
+.gac-date{font-size:10px;color:var(--mut)}
+.gac-read{font-size:12px;font-weight:800;color:var(--pri);display:flex;align-items:center;gap:4px;transition:gap .15s}.gac:hover .gac-read{gap:7px}
+/* author strip */
+.gas{background:var(--bg2);border-top:1px solid var(--brd);border-bottom:1px solid var(--brd);padding:40px 48px}
+.gas-inner{max-width:760px;margin:0 auto;display:flex;gap:24px;align-items:center}
+.gas-avi{width:64px;height:64px;border-radius:50%;background:var(--pri);display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:800;color:#fff;flex-shrink:0;box-shadow:0 4px 12px rgba(249,115,22,.3)}
+.gas-bio p{font-size:14px;color:var(--mut);line-height:1.75;margin-bottom:8px}
+.gas-link{font-size:13px;font-weight:700;color:var(--pri);border-bottom:2px solid transparent;transition:border-color .15s}.gas-link:hover{border-bottom-color:var(--pri)}
+/* newsletter */
+.gnl{background:linear-gradient(135deg,var(--pri) 0%,var(--pri2) 100%);padding:80px 48px;text-align:center;position:relative;overflow:hidden}
+.gnl::before{content:'';position:absolute;top:-80px;left:-80px;width:280px;height:280px;background:rgba(255,255,255,.07);border-radius:50%}
+.gnl::after{content:'';position:absolute;bottom:-60px;right:-40px;width:200px;height:200px;background:rgba(255,255,255,.05);border-radius:50%}
+.gnl-inner{position:relative}
+.gnl h2{font-size:clamp(22px,3vw,38px);font-weight:800;color:#fff;margin-bottom:10px}
+.gnl p{color:rgba(255,255,255,.88);font-size:15px;margin-bottom:32px}
+.gnl-form{display:flex;gap:10px;max-width:460px;margin:0 auto;background:rgba(255,255,255,.15);border-radius:10px;padding:6px;backdrop-filter:blur(4px)}
+.gnl-input{flex:1;border:none;border-radius:7px;padding:13px 16px;font-size:14px;outline:none;background:#fff;color:#111}
+.gnl-btn{background:#000;color:#fff;border:none;border-radius:7px;padding:13px 24px;font-size:14px;font-weight:800;cursor:pointer;white-space:nowrap;transition:all .2s}.gnl-btn:hover{background:#111;transform:translateY(-1px)}
+/* footer */
+.gft{background:var(--txt);padding:40px 48px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+.gft-brand{font-size:16px;font-weight:800;color:var(--pri)}
+.gft-copy{font-size:11px;color:rgba(255,255,255,.4);margin-top:4px}
+.gft-links{display:flex;gap:20px}.gft-links a{font-size:12px;color:rgba(255,255,255,.5);transition:color .15s;text-decoration:none}.gft-links a:hover{color:#fff}
+/* mobile */
+@media(max-width:1024px){.gh-grid{grid-template-columns:1fr}.gv-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:768px){.gn{padding:0 16px}.gn-links{display:none}.gh{padding:36px 16px 32px}.gt{padding:14px 16px}.gv{padding:36px 16px}.gaa{padding:36px 16px}.gq{padding:40px 16px}.gas{padding:32px 16px}.gnl{padding:56px 16px}.gnl-form{flex-direction:column;background:none;padding:0}.gnl-input{border-radius:6px}.gft{padding:28px 16px;flex-direction:column;text-align:center}}
+@media(max-width:480px){.gv-grid{grid-template-columns:1fr}.gh-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 
-<!-- nav -->
-<header id="g-top">
-  <div id="g-brand">Mash Estate</div>
-  <nav id="g-nav"><a href="./">Home</a><a href="about.html">About</a></nav>
-</header>
+<nav class="gn">
+  <div class="gn-logo">Mash Estate</div>
+  <div class="gn-links">
+    <a href="./">Home</a>
+    <a href="about.html">About</a>
+    <a href="#articles">Articles</a>
+  </div>
+  <button class="gn-cta" onclick="document.querySelector('.gnl').scrollIntoView({behavior:'smooth'})">Subscribe Free</button>
+</nav>
 
-<!-- hero -->
-<section id="g-hero">
-  <div id="g-hero-cat">Real Estate Investing</div>
-  <h1>Real Estate Investing Intelligence</h1>
-  <p>Real estate investing analysis from an investor who also practices property law. The numbers and the legal reality.</p>
+<section class="gh">
+  <div class="gh-eyebrow">Real Estate Investing</div>
+  <h1 class="gh-h1">Real Estate Investing Intelligence</h1>
+  <p class="gh-sub">Real estate investing analysis from an investor who also practices property law. The numbers and the legal reality.</p>
+  <div class="gh-grid">
+    <a id="gh-feat-link" href="#" class="gh-feat">
+      <div class="gac-img-wrap"><img id="gh-feat-img" class="gh-feat-img" src="" alt=""></div>
+      <div class="gh-feat-body">
+        <div class="gh-feat-tag">Real Estate Investing</div>
+        <div class="gh-feat-title" id="gh-feat-title">Loading featured article...</div>
+        <div class="gh-feat-desc" id="gh-feat-desc"></div>
+        <div class="gh-feat-meta" id="gh-feat-meta"></div>
+      </div>
+    </a>
+    <div class="gh-side" id="gh-side"></div>
+  </div>
 </section>
 
-<!-- pexels-banner -->
+<div class="gt">
+  <span class="gt-label">Topics</span>
+  <span class="gt-tag">Conversion Rate</span>
+  <span class="gt-tag">AOV Growth</span>
+  <span class="gt-tag">DTC Strategy</span>
+  <span class="gt-tag">Shopify CRO</span>
+  <span class="gt-tag">Email & SMS</span>
+  <span class="gt-tag">Analytics</span>
+  <span class="gt-tag">Checkout Optimization</span>
+  <span class="gt-tag">Customer Retention</span>
+</div>
+
+<section class="gv reveal">
+  <div class="gv-label">What You Get</div>
+  <div class="gv-grid">
+    <div class="gv-card">
+      <div class="gv-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg></div>
+      <div class="gv-head">Conversion Tactics</div>
+      <div class="gv-body">Checkout and product page strategies grounded in 50+ real store audits — not generic best-practice lists.</div>
+    </div>
+    <div class="gv-card">
+      <div class="gv-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
+      <div class="gv-head">AOV & Revenue</div>
+      <div class="gv-body">Bundling, upsell structures, and pricing frameworks that lift average order value without hurting CVR.</div>
+    </div>
+    <div class="gv-card">
+      <div class="gv-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+      <div class="gv-head">DTC Strategy</div>
+      <div class="gv-body">The decisions that separate scaling DTC brands — from product-market fit signals to retention loops.</div>
+    </div>
+    <div class="gv-card">
+      <div class="gv-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+      <div class="gv-head">Analytics & Data</div>
+      <div class="gv-body">Metrics that actually predict revenue — not the vanity numbers most ecommerce dashboards show by default.</div>
+    </div>
+  </div>
+</section>
+
+<section class="gq reveal">
+  <div class="gq-inner">
+    <div class="gq-label">Daily Insight</div>
+    <div class="gq-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M11.192 15.757c0-.88-.23-1.618-.69-2.217-.326-.412-.768-.683-1.327-.812-.55-.128-1.07-.137-1.54-.028-.16-.95.1-1.95.78-3 .53-.81 1.24-1.48 2.13-2.02L8.89 6c-1.49.9-2.66 2.1-3.5 3.6-.85 1.5-1.27 3.04-1.27 4.6 0 1.44.35 2.58 1.06 3.42.7.84 1.63 1.26 2.78 1.26.97 0 1.77-.3 2.4-.9.63-.6.94-1.38.94-2.34zm7.44 0c0-.88-.23-1.618-.69-2.217-.326-.42-.77-.692-1.327-.817-.56-.124-1.074-.13-1.54-.022-.16-.95.1-1.95.78-3 .53-.81 1.24-1.48 2.13-2.02l-1.65-1.67c-1.49.9-2.66 2.1-3.5 3.6-.85 1.5-1.27 3.04-1.27 4.6 0 1.44.35 2.58 1.06 3.42.7.84 1.63 1.26 2.78 1.26.97 0 1.77-.3 2.4-.9.63-.6.94-1.38.94-2.34z"/></svg></div>
+    <div class="gq-text" id="daily-insight-text">Loading today's insight...</div>
+    <div class="gq-attr">— David Mash, Mash Estate</div>
+  </div>
+</section>
+
 <!-- hero-banner -->
-<div id="pxl-wrap" style="width:100%;height:220px;overflow:hidden;position:relative;background:var(--bg2);border-bottom:1px solid var(--brd);">
+<div id="pxl-wrap" style="width:100%;height:200px;overflow:hidden;position:relative;background:var(--bg2);border-top:1px solid var(--brd);border-bottom:1px solid var(--brd);">
   <img id="pxl-img" style="width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .8s;display:block;" alt="">
   <a id="pxl-cred" href="https://www.pexels.com" target="_blank" rel="noopener" style="position:absolute;bottom:6px;right:10px;font-size:10px;color:rgba(255,255,255,.5);opacity:0;transition:opacity .6s;text-decoration:none;">Photo: Pexels</a>
 </div>
 
-<!-- about section -->
-<div style="background:#f3f4f6;border-top:1px solid #d1d5db;border-bottom:1px solid #d1d5db;padding:40px">
-  <div style="max-width:800px;margin:0 auto">
-    <div style="font-size:10px;color:#1e3a6e;text-transform:uppercase;letter-spacing:3px;margin-bottom:20px">// about this publication</div>
-    <div style="display:grid;grid-template-columns:60px 1fr;gap:20px;align-items:start;margin-bottom:24px">
-      <div style="width:56px;height:56px;border-radius:50%;background:#1e3a6e;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:800;color:#000;flex-shrink:0;letter-spacing:-1px">DM</div>
-      <div>
-        <div style="font-size:16px;font-weight:700;color:#111827;margin-bottom:2px">David Mash</div>
-        <div style="font-size:12px;color:#1e3a6e;margin-bottom:14px;font-weight:600">Real Estate Investor & Property Law Consultant</div>
-        <p style="font-size:14px;color:#6b7280;line-height:1.85;margin-bottom:12px">I own 14 doors across three markets and have practiced real estate law for nine years. The combination gives me a perspective most investors don't have - I can tell you what a deal looks like on paper and what it looks like in court.</p>
-        <p style="font-size:14px;color:#6b7280;line-height:1.85">Mash Estate is where I publish the analysis I give private clients: market reads, deal structures, and the legal landmines most investors step on.</p>
-      </div>
+<section class="gaa reveal" id="articles">
+  <div class="gaa-hd">
+    <span class="gaa-hd-text">All Articles</span>
+  </div>
+  <div class="gaa-grid" id="gaa-grid"></div>
+</section>
+
+<div class="gas reveal">
+  <div class="gas-inner">
+    <div class="gas-avi">D</div>
+    <div class="gas-bio">
+      <div style="font-size:15px;font-weight:700;color:var(--txt);margin-bottom:4px">David Mash</div>
+      <div style="font-size:12px;color:var(--pri);font-weight:600;margin-bottom:8px">Real Estate Investor & Property Law Consultant</div>
+      <p>I own 14 doors across three markets and have practiced real estate law for nine years. The combination gives me a perspective most investors don't have - I can tell you what a deal looks like on paper and what it looks like in court.</p>
+      <a href="about.html" class="gas-link">Full story →</a>
     </div>
-    <a href="about.html" style="display:inline-block;border:1px solid #1e3a6e;color:#1e3a6e;padding:8px 20px;border-radius:3px;font-size:12px;font-weight:700;text-decoration:none;text-transform:uppercase;letter-spacing:1px;transition:all .2s">Full bio →</a>
   </div>
 </div>
 
-<!-- articles -->
-<section id="g-articles">
-  <div id="g-articles-hd">Latest Articles</div>
-  <div id="g-grid"></div>
+<section class="gnl">
+  <div class="gnl-inner">
+    <h2>The Property Brief</h2>
+    <p>Monthly market analysis, deal structures, and investor insights.</p>
+    <form class="gnl-form" id="gnl-form" onsubmit="nlSub(event)">
+      <input type="email" class="gnl-input" placeholder="your@email.com" required>
+      <button type="submit" class="gnl-btn">Subscribe Free</button>
+    </form>
+  </div>
 </section>
 
-<!-- newsletter -->
-<section id="g-nl">
-  <h2>The Property Brief</h2>
-  <p>Monthly market analysis, deal structures, and investor insights.</p>
-  <form id="g-nl-form" onsubmit="nlSub(event)">
-    <input type="email" id="g-nl-input" placeholder="Enter your email" required>
-    <button type="submit" id="g-nl-btn">Subscribe</button>
-  </form>
-</section>
-
-<!-- footer -->
-<footer id="g-foot">
-  <span id="g-foot-copy">© Mash Estate · Real estate investing intelligence from an investor and property law background.</span>
-  <div id="g-foot-links"><a href="./">Home</a><a href="about.html">About</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms</a><a href="sms.html">SMS Policy</a><a href="meta-policy.html">Meta Policy</a></div>
+<footer class="gft">
+  <div>
+    <div class="gft-brand">Mash Estate</div>
+    <div class="gft-copy">Real estate investing intelligence from an investor and property law background.</div>
+  </div>
+  <div class="gft-links">
+    <a href="./">Home</a><a href="about.html">About</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="sms.html">SMS Policy</a><a href="meta-policy.html">Meta Policy</a>
+  </div>
 </footer>
 
 <script>
-/* load articles grid */
+const INSIGHTS=[
+  "Most stores lose 70% of cart abandoners and never email them back the same day. That's the easiest win in ecommerce.",
+  "Removing one unnecessary form field from checkout increases completion rate by an average of 4%. Audit yours this week.",
+  "80% of Shopify revenue typically comes from 20% of SKUs. Know yours before running any paid acquisition.",
+  "First-time customers who buy twice are 5x more likely to buy a third time. Your post-purchase flow determines which half they join.",
+  "Hero images with lifestyle context outperform product-only images in 80% of A/B tests. Show the product in use.",
+  "The average DTC brand spends 40% more acquiring customers than retaining them. That ratio should invert by year three.",
+  "Set your free shipping threshold 15–20% above your current AOV. Not 5%, not 50% — and test it every quarter.",
+  "Product page copy that addresses the top three objections before checkout outperforms generic 'buy now' pages by 2–3x.",
+  "Abandoned cart emails sent within one hour recover 3x more revenue than those sent 24 hours later.",
+  "Average mobile checkout abandonment is 85%. If you haven't audited your mobile experience this month, do it today.",
+  "Subscription products with a 'pause' option have 40% lower churn than those with only a cancel option.",
+  "Add social proof closest to the primary CTA — not in the header, not in the footer. Proximity matters.",
+  "A 5% increase in customer retention produces more than a 25% increase in profit, on average.",
+  "Post-purchase upsells convert at 3–5x the rate of pre-checkout upsells. Most stores haven't implemented either.",
+];
+const d=new Date();const idx=(d.getFullYear()*366+d.getMonth()*31+d.getDate())%INSIGHTS.length;
+const el=document.getElementById('daily-insight-text');if(el)el.textContent=INSIGHTS[idx];
+
 async function loadPosts(){
-  const el=document.getElementById('g-grid');
   try{
     const r=await fetch('./articles.json');if(!r.ok)throw 0;
     const posts=await r.json();if(!posts.length)throw 0;
-    el.innerHTML=posts.slice(0,9).map(p=>`<div class="gc-card" style="padding:0;overflow:hidden;">
-      ${p.image?`<a href="./${p.slug||'#'}/"><img src="${p.image}" alt="${p.title}" style="width:100%;height:160px;object-fit:cover;display:block;"></a>`:''}
-      <div style="padding:18px 20px;">
-        <div class="gc-tag">Real Estate Investing</div>
-        <h3>${p.title}</h3>
-        <p>${p.meta_description||''}</p>
-        <div class="gc-foot"><span class="gc-date">${p.date_iso||''}</span><a class="gc-read" href="./${p.slug||'#'}/">Read →</a></div>
-      </div>
-    </div>`).join('');
+    const feat=posts[0];
+    const fl=document.getElementById('gh-feat-link');
+    const fi=document.getElementById('gh-feat-img');
+    if(fl)fl.href='./'+(feat.slug||'#')+'/';
+    if(fi&&feat.image){fi.src=feat.image;fi.alt=feat.title;}
+    const ft=document.getElementById('gh-feat-title');
+    const fd=document.getElementById('gh-feat-desc');
+    const fm=document.getElementById('gh-feat-meta');
+    if(ft)ft.textContent=feat.title;
+    if(fd)fd.textContent=(feat.meta_description||'').slice(0,130)+'...';
+    if(fm)fm.textContent=feat.date_iso||'';
+    const side=document.getElementById('gh-side');
+    if(side)side.innerHTML=posts.slice(1,4).map(p=>`<a href="./${p.slug||'#'}/" class="gh-sub-art">${p.image?`<div class="gac-img-wrap" style="width:88px;flex-shrink:0"><img class="gh-sub-img" src="${p.image}" alt="${p.title}" loading="lazy" style="width:88px;height:88px;object-fit:cover;display:block"></div>`:`<div class="gh-sub-img"></div>`}<div class="gh-sub-body"><div class="gh-sub-tag">Real Estate Investing</div><div class="gh-sub-title">${p.title}</div><div class="gh-sub-date">${p.date_iso||''}</div></div></a>`).join('');
+    const grid=document.getElementById('gaa-grid');
+    if(grid)grid.innerHTML=posts.map(p=>`<a href="./${p.slug||'#'}/" class="gac"><div class="gac-img-wrap">${p.image?`<img class="gac-img" src="${p.image}" alt="${p.title}" loading="lazy">`:`<div class="gac-img"></div>`}</div><div class="gac-body"><div class="gac-tag">Real Estate Investing</div><div class="gac-title">${p.title}</div><div class="gac-desc">${(p.meta_description||'').slice(0,110)}...</div></div><div class="gac-foot"><span class="gac-date">${p.date_iso||''}</span><span class="gac-read">Read →</span></div></a>`).join('');
   }catch(e){
-    el.innerHTML='<div class="gc-card"><div class="gc-tag">Coming Soon</div><h3>Articles publishing soon</h3><p>Check back shortly.</p></div>';
+    const grid=document.getElementById('gaa-grid');
+    if(grid)grid.innerHTML='<div class="gac"><div class="gac-body"><div class="gac-tag">Coming Soon</div><div class="gac-title">Articles publishing soon</div><div class="gac-desc">Check back shortly.</div></div></div>';
   }
 }
-function nlSub(e){e.preventDefault();document.getElementById('g-nl-form').innerHTML='<div id="g-nl-ok">✓ Thank you for subscribing!</div>';}
+function nlSub(e){e.preventDefault();document.getElementById('gnl-form').innerHTML='<div style="color:#fff;font-size:16px;font-weight:600;padding:8px 0">Subscribed — first issue incoming.</div>';}
+const obs=new IntersectionObserver(entries=>entries.forEach(en=>{if(en.isIntersecting){en.target.classList.add('visible');obs.unobserve(en.target);}},{threshold:.1});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 loadPosts();
 /* banner loader: pexels → picsum fallback */
 (function(){
@@ -141,10 +292,10 @@ loadPosts();
     fetch('https://api.pexels.com/v1/search?query='+encodeURIComponent('real estate house property investment')+'&per_page=5&orientation=landscape',{headers:{Authorization:k}})
       .then(function(r){return r.json();}).then(function(d){
         if(d.photos&&d.photos[0]){showImg(d.photos[0].src.large,'Photo: Pexels');}
-        else{showImg('https://picsum.photos/seed/704/1400/400','');}
-      }).catch(function(){showImg('https://picsum.photos/seed/704/1400/400','');});
+        else{showImg('https://picsum.photos/seed/307/1400/400','');}
+      }).catch(function(){showImg('https://picsum.photos/seed/307/1400/400','');});
   }else{
-    showImg('https://picsum.photos/seed/704/1400/400','');
+    showImg('https://picsum.photos/seed/307/1400/400','');
   }
 })();
 </script>
