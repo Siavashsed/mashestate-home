@@ -119,7 +119,7 @@ a{color:var(--pri);text-decoration:none}a:hover{color:var(--pri2)}
         </div>
         <div class="gab-exp-card">
           <div class="gab-exp-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
-          <div><div class="gab-exp-head">A/B Testing Frameworks</div><div class="gab-exp-body">Structuring experiments that produce valid results — not the underpowered tests that fill most CRO reports.</div></div>
+          <div><div class="gab-exp-head">A/B Testing Frameworks</div><div class="gab-exp-body">Structuring experiments that produce valid results  -  not the underpowered tests that fill most CRO reports.</div></div>
         </div>
         <div class="gab-exp-card">
           <div class="gab-exp-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
@@ -127,7 +127,7 @@ a{color:var(--pri);text-decoration:none}a:hover{color:var(--pri2)}
         </div>
         <div class="gab-exp-card">
           <div class="gab-exp-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
-          <div><div class="gab-exp-head">Analytics & Attribution</div><div class="gab-exp-body">Setting up measurement that actually reflects what's driving revenue — not what's easiest to track.</div></div>
+          <div><div class="gab-exp-head">Analytics & Attribution</div><div class="gab-exp-body">Setting up measurement that actually reflects what's driving revenue  -  not what's easiest to track.</div></div>
         </div>
         <div class="gab-exp-card">
           <div class="gab-exp-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg></div>
@@ -141,7 +141,7 @@ a{color:var(--pri);text-decoration:none}a:hover{color:var(--pri2)}
       <div class="gab-steps">
         <div class="gab-step"><div class="gab-step-n">1</div><div><div class="gab-step-head">Traffic & Source Analysis</div><div class="gab-step-body">Understand where buyers come from, what they expect when they arrive, and how well the landing experience matches that expectation.</div></div></div>
         <div class="gab-step"><div class="gab-step-n">2</div><div><div class="gab-step-head">Product Page Review</div><div class="gab-step-body">Evaluate information hierarchy, image quality, trust signals, objection handling, and call-to-action clarity against what actually drives add-to-cart.</div></div></div>
-        <div class="gab-step"><div class="gab-step-n">3</div><div><div class="gab-step-head">Cart & Checkout Mapping</div><div class="gab-step-body">Identify every point of friction between add-to-cart and completed purchase — form fields, payment options, shipping clarity, and mobile experience.</div></div></div>
+        <div class="gab-step"><div class="gab-step-n">3</div><div><div class="gab-step-head">Cart & Checkout Mapping</div><div class="gab-step-body">Identify every point of friction between add-to-cart and completed purchase  -  form fields, payment options, shipping clarity, and mobile experience.</div></div></div>
         <div class="gab-step"><div class="gab-step-n">4</div><div><div class="gab-step-head">Post-Purchase & Retention</div><div class="gab-step-body">Assess how well the brand captures repeat purchase intent, upsells at confirmation, and sets up email flows for LTV growth.</div></div></div>
         <div class="gab-step"><div class="gab-step-n">5</div><div><div class="gab-step-head">Prioritized Recommendations</div><div class="gab-step-body">Rank findings by expected impact and implementation cost. Most stores have three or four high-leverage changes and a long tail of minor improvements.</div></div></div>
       </div>
@@ -283,7 +283,7 @@ a{color:var(--pri);text-decoration:none}a:hover{color:var(--pri2)}
 </footer>
 
 <script>
-function nlSub(e){e.preventDefault();document.getElementById('gab-nl-form').innerHTML='<div style="color:#fff;font-weight:600;padding:6px 0">Subscribed — first issue incoming.</div>';}
+function nlSub(e){e.preventDefault();document.getElementById('gab-nl-form').innerHTML='<div style="color:#fff;font-weight:600;padding:6px 0">Subscribed  -  first issue incoming.</div>';}
 async function loadRecent(){
   try{
     const r=await fetch('./articles.json');if(!r.ok)return;
@@ -293,25 +293,41 @@ async function loadRecent(){
   }catch(e){}
 }
 loadRecent();
-/* banner loader: pexels → picsum fallback */
+/* banner loader: pexels → unsplash → picsum */
 (function(){
   var el=document.getElementById('pxl-img');
   var cr=document.getElementById('pxl-cred');
   if(!el)return;
+  var SOURCES=['pexels', 'unsplash'];
+  var Q=encodeURIComponent('real estate house property investment');
+  var FALLBACK='https://picsum.photos/seed/6/1400/400';
   function showImg(src,cred){
     el.onload=function(){el.style.opacity='1';if(cred&&cr){cr.textContent=cred;cr.style.opacity='1';}};
     el.src=src;
   }
-  var k=localStorage.getItem('pexelsKey');
-  if(k){
-    fetch('https://api.pexels.com/v1/search?query='+encodeURIComponent('real estate house property investment')+'&per_page=5&orientation=landscape',{headers:{Authorization:k}})
+  function tryUnsplash(){
+    var uk=localStorage.getItem('unsplashKey');
+    if(!uk){showImg(FALLBACK,'');return;}
+    fetch('https://api.unsplash.com/photos/random?query='+Q+'&count=1&orientation=landscape&client_id='+uk)
+      .then(function(r){return r.json();}).then(function(d){
+        var p=Array.isArray(d)?d[0]:d;
+        if(p&&p.urls&&p.urls.regular){showImg(p.urls.regular,'Photo: '+((p.user&&p.user.name)||'Unsplash')+' / Unsplash');}
+        else{showImg(FALLBACK,'');}
+      }).catch(function(){showImg(FALLBACK,'');});
+  }
+  function tryPexels(){
+    var k=localStorage.getItem('pexelsKey');
+    if(!k){if(SOURCES.indexOf('unsplash')>=0)tryUnsplash();else showImg(FALLBACK,'');return;}
+    fetch('https://api.pexels.com/v1/search?query='+Q+'&per_page=5&orientation=landscape',{headers:{Authorization:k}})
       .then(function(r){return r.json();}).then(function(d){
         if(d.photos&&d.photos[0]){showImg(d.photos[0].src.large,'Photo: Pexels');}
-        else{showImg('https://picsum.photos/seed/210/1400/400','');}
-      }).catch(function(){showImg('https://picsum.photos/seed/210/1400/400','');});
-  }else{
-    showImg('https://picsum.photos/seed/210/1400/400','');
+        else if(SOURCES.indexOf('unsplash')>=0){tryUnsplash();}
+        else{showImg(FALLBACK,'');}
+      }).catch(function(){if(SOURCES.indexOf('unsplash')>=0)tryUnsplash();else showImg(FALLBACK,'');});
   }
+  if(SOURCES.indexOf('pexels')>=0){tryPexels();}
+  else if(SOURCES.indexOf('unsplash')>=0){tryUnsplash();}
+  else{showImg(FALLBACK,'');}
 })();
 </script>
 </body></html>
